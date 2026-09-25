@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "highschool_math_solver"
+version = "0.1.0"
+authors = [{name="LuJohn", email="helloLuJohn@outlook.com"}]
+description = "Python工具，用于求解高中数学：函数、导数、解析几何、数列、概率、立体几何等问题"
+requires-python = ">=3.10,<3.13"  # 适配3.10/3.11/3.12，不使用3.13+避免库兼容问题
+
+# ========== 【运行依赖：程序实际跑起来必须装的库】 ==========
+dependencies = [
+    # 符号计算核心：解方程、求导、化简表达式、解析几何公式运算（高中数学核心！）
+    "sympy>=1.12",
+    # 数值计算，绘图底层，处理浮点、矩阵、立体几何数值
+    "numpy>=1.26",
+    # 绘图：画函数图像、导数图像、圆锥曲线、立体几何图
+    "matplotlib>=3.8",
+    # 可选：LaTeX渲染，把数学公式渲染成漂亮公式显示
+    #"mathtext>=0.8",
+]
+
+# ========== 【开发依赖：仅你写代码、测试、格式化时需要，打包发布不需要】 ==========
+[project.optional-dependencies]
+dev = [
+    # 单元测试：写自动化测试用例，测试各个数学求解函数
+    "pytest>=7.4",
+    # 代码格式化，统一代码风格，提交git前自动格式化
+    "ruff>=0.4",
+    # 类型检查，提前发现代码bug
+    "mypy>=1.8",
+    # pre-commit：git提交前自动执行格式化、检查（大型项目必备）
+    "pre-commit>=3.7",
+    # 文档生成：后续写项目文档、数学公式文档
+    "sphinx>=7.2",
+]
+
+# 下面配置：src目录包结构，和你的项目目录匹配
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["*"]
+
+# Ruff代码检查配置（开发用）
+[tool.ruff]
+line-length = 120
+select = ["E", "W", "F"]
+fix = true
+
+# pytest测试配置
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]

@@ -1,0 +1,26 @@
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# python缓存
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 日志、临时文件
+*.log
+tmp/
+temp/
+
+# 打包文件
+dist/
+build/
+*.egg-info/
