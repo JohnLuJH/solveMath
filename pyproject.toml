@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "highschool_math_solver"
+name = "solveMath"
 version = "0.1.0"
 authors = [{name="LuJohn", email="helloLuJohn@outlook.com"}]
 description = "Python工具，用于求解高中数学：函数、导数、解析几何、数列、概率、立体几何等问题"
